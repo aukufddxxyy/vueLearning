@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="vue1.css">
+</head>
+
+<body>
+    <div id="dynamic-component-demo" class="demo">
+        <button v-for="tab in tabs" v-bind:key="tab" v-bind:class="['tab-button', { active: currentTab === tab }]"
+            v-on:click="currentTab = tab">
+            {{ tab }}
+        </button>
+
+        <component v-bind:is="currentTabComponent" class="tab"></component>
+    </div>
+
+</body>
+
+<script src="https://unpkg.com/vue@next"></script>
+<script src="./vue1.js"></script>
+<script src="./ComponentsApp.js"></script>
+<script src="./BlogPost.js"></script>
+<script src="./BlogPostsEvents.js"></script>
+
+</html>
